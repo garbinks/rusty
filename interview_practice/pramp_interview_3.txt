@@ -1,0 +1,48 @@
+function binarySearch(arr, num): # target number = 5
+   begin = 0
+   end = len(arr) - 1
+   while (begin <= end):
+      mid = round((begin+end)/2) # = 2
+      if arr[mid] < num:
+         begin = mid + 1 # [1,2,3,4,5,6] begin = 3
+      else if arr[mid] == num:
+         return mid
+      else:
+         end = mid - 1
+   return -1
+
+def find_int_part_1(arr[], int my_int):
+   
+   # for ex our key we want is 5 
+   # loop through entire array
+   # not sure on index manipulation here...
+   for i to range(len(arr)/2 + 1):
+      if arr[i] == my_int:
+         return True
+      
+   return False
+
+      
+def find_int_part_2(shifted_arr[], int my_int):
+   
+   index_min = 0
+   index_mid = len(shifted_arr)/2 
+   index_max = len(shifted_arr)
+   
+   
+   
+      
+# linked list detection of this kind of problem
+# say you have a sentence (chars) ... which is no different than ints... 
+
+#  [2, 4, 5, 9, 12, 17] 
+#  [9, 12, 17, 2, 4, 5]
+# [2, 4, 5, 9, 12, 17, 2, 4, 5, 9, 12, 17]
+
+
+# O(n) time (potentially) to find the mid point where min & max meet
+# that would give the mid point, you know how many indicies to shift 
+# then you can have the original sorted array & call binary search
+
+
+# but... that's obviously not the solution they are looking for 

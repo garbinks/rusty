@@ -1,0 +1,31 @@
+# cook your code here
+
+class vehicles:
+    count = 0
+	
+    def __init__(self, value):
+        self.value = value
+        vehicles.count += 1
+        
+    def getval(self):
+        return self.value
+        
+    def getcount(cls):
+        return vehicles.count
+        
+    counter = classmethod(getcount)
+    
+def main():
+    
+    n = 12
+    names = [[]] * n
+    
+    employee = "adam"
+    m = 6
+    names[m].append(employee)
+    
+    print names
+    
+    
+if __name__ == "__main__":
+    main()

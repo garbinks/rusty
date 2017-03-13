@@ -1,0 +1,21 @@
+transitioning from one device to another
+
+handoffs between devices and sessions
+
+how do you recognize something interesting is going on?
+
+unstructured/structured data. cookies. 
+
+distributed environment. does the thread keep running on both ends?
+
+need a reliable transaction system.
+rabbitmq / apache kafka (queueing tech)
+
+producer/consumer problem
+
+thread safety
+distributed computing
+
+python & java
+
+lamp stack

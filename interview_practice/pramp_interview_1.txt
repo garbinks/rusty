@@ -1,0 +1,130 @@
+// ####
+// Nevermind me
+// What general form of a sorting algorithm you had in mind just now?
+// And, what runtime complexity does insertion sort / selection sort / similar have?
+// So, in Big-O what would be time complexity for, let's say, insertion sort in general?
+// Insertion sort is O(n^2) in worst case (which is similar to selection sort, bubble sort)
+// It's n^2 because for each element in the array we try to find a correct position (out of n position, in worst case) to insert
+// the element in, so it's n^2
+// But, in this case, we know that each element is misplaces by at most k positions.
+// Correct. O(n * k)
+// Yes, if k is constant and relatively small, we probably get to O(n)
+// But that is not always going to be the case, e.g. if k is large.
+
+// So, we can actually do beter than O(n * k)
+// What other sorting algorithm do we have that are better than O(n^2)?
+// Quicksort - what is the runtime complexity of quicksort? Average: O(n * log n)
+// It turns out we can do better (at least a bit).
+// So, what other nlogn sorting algorithms do we have?
+// Mergesort
+// There is one more popular nlogn sorting algorithm. It uses a heap.
+// Heapsort. The runtime complexity of heapsort is O(n * logn) worst case.
+// Any idea how we can modify heapsort to solve our problem?
+// What if we do heapsort on the whole array?
+// We could. "k" will help us improve heapsort.
+// So, let's go back to the runtime complexity of heapsort and try to analyze it.
+
+// We have the following: O(n * logn). Where does the "logn" come from?
+// Or, what operation is being done for each element that costs logn time?
+// Okay. Can you explain how a general heapsort algorithm works?
+// How do we do the sorting?
+// So, in general, it goes like this:
+// 1. we initialize a heap
+// 2. we push each element of the array into the heap
+// 3. we repeatedly pop an element from the heap and insert it into a "result" array,
+//    until the heap is empty.
+
+// Popping from the heap costs logn time, and we do that n times, therefore, the overall
+// running time we get is: O(n * logn)
+
+// So the next question would be: How can we reduce the running time for the pop operation? Currently
+// it is O(logn).
+// So, what is "n" in this expression?
+// In the context of the heap, n is going to be the size of the heap.
+// Because for every pop, we remove the root, but the we have fix the heap order property, which
+// may take logn time.
+// Based on that, can we reduce the size of the heap? Let's say, instead of inserting ~all~ elements,
+// we insert the first "k" (or something like that) elements into the heap?
+// We are still going to do n pops. If we maintain heap size to a constant c, then popping would "log c"
+// time.
+// This constant should be less than n, if we want a better running time.
+// So if the heap size is S (and not n), then popping would take O(log S) time.
+// Correct. Yes! We are after a O(n log k) solution.
+// If you want, we can use an extra 15 min. I don't mind.
+
+// I could paste a working code snippet of the solution, if you want.
+
+// ####
+
+void sort2(vector<int> & arr, int k) {
+  priority_queue<int, vector<int>, greater<int>> q;
+
+  int n = arr.size();
+
+   
+   // here we push the first k elements
+  for (int i = 0; i < k && i < n; i++) {
+    q.push(arr[i]);
+  }
+   
+  
+  for (int i = 0; i < n; i++) {
+    if (i + k < n) {
+      q.push(arr[i + k]);
+    }
+    arr[i] = q.top();
+    q.pop();
+  }
+   // lines 73 and 76 guarantee that heap size will have less than k+1 elements.
+   // the rest of the code is ordinary heapsort, more or less
+   // so I would recommend looking into heapsort,
+   // and then checking out how this solution differs.
+   
+   // questions regarding this?
+   // you still there?
+   // can you hear me? 
+   // no
+   // that's odd. you were able to hear before? 
+   // i'm talking. that's odd. 
+   // i don't hear you
+   
+   // we can move on to your question. but i thought you could hear me earlier.
+   // i did hear you earlier. But now it's silent.
+   
+   // strange. oh well. do you want to move to your question? 
+   //i don't have any questions for now. i need to practice heap (and other sorting)
+   //sort. it's been at least 3-4 years since i've implemented them.... 
+
+   // i understand. I think anyone would have forgotten that after 3-4 years.
+   // but, can you try refreshing your page to see if sound comes back?
+   
+   // yes. 1 second.
+   // i can hear now
+   // but can you hear me?
+   // o
+   
+int main() {
+
+  vector<int> arr = {1, 3, 4, 2, 5, 8, 9, 6, 7, 10};
+  sort1(arr, 2);
+
+  cout << "[";
+  for (auto number : arr) {
+    cout << number << ", ";
+  }
+  cout << "]" << endl;
+
+  /// --
+
+  vector<int> arr2 = {1, 3, 4, 2, 5, 8, 9, 6, 7, 10};
+  sort2(arr2, 2);
+
+  cout << "[";
+  for (auto number : arr2) {
+    cout << number << ", ";
+  }
+  cout << "]";
+
+  return 0;
+}
+

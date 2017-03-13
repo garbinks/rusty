@@ -1,0 +1,14 @@
+# cook your dish here
+def bar(lst):
+    return lst.append(7)
+        
+def main():
+    before = [1, 2, 3, 4, 5]
+    
+    after = bar(before)
+    
+    print(before)
+    print(after)
+    
+if __name__ == "__main__":
+    main()

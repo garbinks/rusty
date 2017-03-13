@@ -1,0 +1,30 @@
+# cook your code here
+
+class vehicles:
+    count =0 
+	
+    def __init__(self, value):
+        self.value = value
+        vehicles.count += 1
+        
+    def getval(self):
+        return self.value
+        
+    def getcount(cls):
+        return vehicles.count
+        
+    counter = classmethod(getcount)
+    
+def test(x):
+
+    print x 
+    if x % 3 == 0 : return test(x/3)
+    if x % 2 == 1: return x
+    return test(2*x+1)
+    
+def main():
+    
+    print test(100)
+    
+if __name__ == "__main__":
+    main()

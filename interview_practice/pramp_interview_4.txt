@@ -1,0 +1,55 @@
+class Element{
+   
+   public int x, y;
+   public int value; 
+   public boolean visited;
+   
+   public static Element(int myX, int myY){
+      x = myX; 
+      y = myY;
+      
+   }
+}
+
+class Pramp {
+   
+   public static void fillArray(){
+      
+      // loop through array, fill Visitor Array structure 
+      // initialize all bools to FALSE
+   }
+   
+   public static int mapAndCountIslands(ArrayList<Element> myArray) {
+      
+      // two nested loops 
+      
+      for(int i = 0; i < myArray.length; i ++){ // need to modify .length for my new structure
+         for(int j = 0; j < myArray[0].length; j++){ // need to modify .length for my new structure
+            
+            if (myArray[i][j].visited) {
+               break;
+            }
+            // add items that are 1s to ArrayList
+            if (myArray[i][j].value == 1) {
+               // scan up, down, left, right
+               // mark VISITED 
+               // increment island count
+            }
+         }
+      }
+      
+      return myList;
+   }
+   
+   public static void main(String[] args) {
+
+   }
+}
+
+         0  1  2  3  4 
+            
+0        0  1*  0 [1]  0   // [0,1] [0,3]*
+1        0  0  [1  1  1]   // [1,2]* [1,3]* [1,4]*
+2        1*  0  0 [1]  0   // [2,0] [2,3]*
+3        0  {1  1}  0  0   // [3,1] [3,2]
+4        1*  0 {1}  0  1*  // [4,0] [4,2] [4,4]

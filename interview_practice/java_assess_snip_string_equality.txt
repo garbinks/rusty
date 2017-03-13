@@ -1,0 +1,24 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		String first = "first";
+		String second = new String("first");
+		
+		"first".concat("second");
+		
+		System.out.println(first.equals(second)); // true
+		System.out.println(first == second); // false
+		System.out.println(first.equals("firstsecond")); // false
+		System.out.println(second == "first"); // false 
+	}
+}

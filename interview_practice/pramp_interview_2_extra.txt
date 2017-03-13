@@ -1,0 +1,75 @@
+class Pramp {
+   public static void main(String[] args) {
+
+      public int[] quadCombination(int myArray[], int S){
+        
+         
+         int mySolution[];
+         // error checking for array less than 4
+         if (myArray.length < 4) {
+            return null;
+         }
+           // outer loop 
+           for(int i = 0; i < myArray.length-1; i++){
+              
+              // loop to scan for 2nd value 
+              for(int j = i+1; j < myArray.length-1; j++){
+                 
+                 // loop to scan for 3rd value
+                 for(int k = j+1; k < myArray.length-1; k++){
+                    
+                    // loop to scan for 4th value
+                    for(int m = k+1; m < myArray.length-1; m++){
+                       
+                       // add up the values & check for equality
+                       if (myArray[i] + myArray[j] + myArray[k] + myArray[m]){
+                          // return the 4 indicies here
+                          mySolution[] = {i, j, k, m};
+                          return mySolution;
+                       }
+                    }
+                 }
+              }
+           }
+         return null;
+      }
+   }
+}
+
+
+int myTempArray[];
+
+
+// calculate sum for comb. of pairs
+// outer loop
+for (int i = 0; i < myArray.length; i++){
+   
+   for (int j = i + 1; j < myArray.length; j++){
+      
+      // add them up, insert into temp array
+      
+      myTempArray[i] = myArray[i] + myArray[j]; 
+      
+   }    
+}
+// ** can you hear me???** 
+//no- can you hear me? 
+// yes
+
+//i think it's my end. my bluetooth disconnected and i lost my mic
+// i'll refresh
+
+for (){
+   for (){
+      
+   }
+}
+
+
+
+// size is 10 
+// let's say S is 5 in this example
+// [1, 2, 2, 3, 4, 1, 1, 5, 6, 7]
+// [*, *, ]
+
+// 

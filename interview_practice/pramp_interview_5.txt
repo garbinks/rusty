@@ -1,0 +1,35 @@
+   # this method will take in the input array
+def get_num_not_in_array(myArray):
+   
+   # insert into array based on hashing func
+   # simple hashing func will be % n+1 (the size of the array)
+   if len(myArray) == (2**32):
+      return None
+     
+   myHashTable = []
+   
+   initialize_hash_array(myHashTable, len(myArray))
+   
+   # this should fill the hash array with elements
+   for item in myArray:      
+      myHashTable[item % (len(myArray) + 1)] = item
+      
+   return find_first_missing_item(myHashTable)
+   
+# scan hash array and find the -1 
+# return the index it's found at 
+def find_first_missing_item(hashed_array):
+   
+   for i in range len(hashed_array): 
+      if hashed_array[i] == -1:
+         return i
+      
+# initialize the proper size of the hash array
+def initialize_hash_array(myHashTable, sizeOfHash):
+   
+   # this should initialize with 1 extra space than needed
+   # this will be our "empty pigeon hole"
+   for i in range (sizeOfHash+1):
+      myHashTable[i] = -1
+   
+   

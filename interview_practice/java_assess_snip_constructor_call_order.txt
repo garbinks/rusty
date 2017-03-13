@@ -1,0 +1,43 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.BigDecimal; 
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class IkmTest 
+{
+    private static int count; 
+    static {
+        System.out.println("In block 1");
+        count = 10;
+    }
+	
+    private int[] data;
+	
+    {
+        System.out.println("In block 2");
+        data = new int[count];
+        for (int i = 0; i < count; i++){
+            data[i] = i;
+        }
+    }
+	
+	public static void main (String args[]) throws java.lang.Exception
+	{
+        System.out.println("Count = " + count);
+        System.out.println("Before 1st call to new");
+        IkmTest test1 = new IkmTest();
+        System.out.println("Before 2nd call to new");
+        IkmTest test2 = new IkmTest();
+	}
+}
+
+
+In block 1
+Count = 10
+Before 1st call to new
+In block 2
+Before 2nd call to new
+In block 2
